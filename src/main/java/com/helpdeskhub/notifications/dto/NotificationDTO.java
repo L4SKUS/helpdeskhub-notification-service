@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class NotificationRequestDTO {
+public class NotificationDTO {
     private String recipient;
     private Integer ticketId;
     private String ticketTitle;
