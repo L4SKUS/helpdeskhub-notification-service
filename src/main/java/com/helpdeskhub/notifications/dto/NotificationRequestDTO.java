@@ -7,9 +7,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class NotificationRequestDTO {
     private String recipient;
-    private String ticketId;
+    private Integer ticketId;
     private String ticketTitle;
     private String commentText;
-    private String agentName;
+    private String employeeName;
     private String status;
 }

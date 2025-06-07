@@ -19,9 +19,9 @@ public class EmailNotificationService {
         sendEmail(recipient, subject, message);
     }
 
-    public void sendAgentAssignedNotification(String recipient, String ticketId, String ticketTitle, String agentName) {
-        String subject = "A Helpdesk Agent Has Been Assigned to Your Ticket #" + ticketId;
-        String message = "Hello,\n\nAgent " + agentName + " has been assigned to your ticket titled \"" + ticketTitle + "\".\n\n"
+    public void sendEmployeeAssignedNotification(String recipient, String ticketId, String ticketTitle, String employeeName) {
+        String subject = "Helpdesk Employee Has Been Assigned to Your Ticket #" + ticketId;
+        String message = "Hello,\n\nEmployee " + employeeName + " has been assigned to your ticket titled \"" + ticketTitle + "\".\n\n"
                 + "They will contact you shortly.\n\nHelpdesk Team";
         sendEmail(recipient, subject, message);
     }

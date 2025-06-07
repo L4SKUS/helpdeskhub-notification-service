@@ -16,24 +16,24 @@ public class NotificationController {
     @Autowired
     private EmailNotificationService emailService;
 
-    @PostMapping("/new-comment")
+    @PostMapping("/comment")
     public ResponseEntity<String> notifyNewComment(@RequestBody NotificationRequestDTO request) {
         emailService.sendNewCommentNotification(request.getRecipient(),
-                request.getTicketId(), request.getTicketTitle(), request.getCommentText());
+                String.valueOf(request.getTicketId()), request.getTicketTitle(), request.getCommentText());
         return ResponseEntity.ok("Comment notification sent");
     }
 
-    @PostMapping("/agent-assigned")
-    public ResponseEntity<String> notifyAgentAssigned(@RequestBody NotificationRequestDTO request) {
-        emailService.sendAgentAssignedNotification(request.getRecipient(),
-                request.getTicketId(), request.getTicketTitle(), request.getAgentName());
-        return ResponseEntity.ok("Agent assignment notification sent");
+    @PostMapping("/employee")
+    public ResponseEntity<String> notifyEmployeeAssigned(@RequestBody NotificationRequestDTO request) {
+        emailService.sendEmployeeAssignedNotification(request.getRecipient(),
+                String.valueOf(request.getTicketId()), request.getTicketTitle(), request.getEmployeeName());
+        return ResponseEntity.ok("Employee assignment notification sent");
     }
 
-    @PostMapping("/status-changed")
+    @PostMapping("/status")
     public ResponseEntity<String> notifyStatusChanged(@RequestBody NotificationRequestDTO request) {
         emailService.sendStatusChangedNotification(request.getRecipient(),
-                request.getTicketId(), request.getTicketTitle(), request.getStatus());
+                String.valueOf(request.getTicketId()), request.getTicketTitle(), request.getStatus());
         return ResponseEntity.ok("Status change notification sent");
     }
 }
